@@ -2,8 +2,8 @@
 
 * {
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 html,
@@ -11,20 +11,13 @@ body {
   font-family: 'Rubik', sans-serif;
   background: #000;
   color: #fff;
-  overflow-x: hidden;
   line-height: 1.7;
+  overflow-x: hidden;
 }
 
 a {
-  text-decoration: none;
   color: #fff;
-}
-
-.link-underline {
-  color: #ccc;
-  display: block;
-  font-size: 14px;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 a:hover {
@@ -39,6 +32,79 @@ img {
   width: 100%;
 }
 
+h3 {
+  font-size: 26px;
+  font-weight: 300;
+}
+
+h4 {
+  color: #00ed82;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.btn {
+  display: inline-block;
+  background: #fff;
+  color: #333;
+  min-width: 135px;
+  padding: 20px 32px;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 14px;
+  border: none;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.btn-cta:hover {
+  opacity: 0.8;
+}
+
+.btn-outline {
+  background: none;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+.btn-outline:hover {
+  color: #fff;
+  border-color: #ccc;
+}
+
+.btn-dark {
+  background: #000;
+  color: #fff;
+}
+
+.legal-text {
+  font-size: 10px;
+  color: #ccc;
+  margin-top: 20px;
+}
+
+.sub-link {
+  display: block;
+  color: #ccc;
+  font-size: 12px;
+  margin-top: 5px;
+  text-decoration: underline;
+}
+
+.text-xl {
+  font-size: 70px;
+  font-weight: bold;
+}
+
+.sub-text {
+  max-width: 850px;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+/* Header */
 .header {
   height: 530px;
   background: url('https://raw.githubusercontent.com/bradtraversy/hulu-webpage-clone/main/img/header.jpg')
@@ -49,15 +115,17 @@ img {
   display: flex;
   justify-content: flex-end;
   padding: 20px 40px;
+  z-index: 2;
+  position: relative;
 }
 
-.header .login-btn {
+.header nav .login-btn {
   cursor: pointer;
-  border: none;
   background: none;
+  border: none;
   color: #fff;
-  text-transform: uppercase;
   font-weight: bold;
+  text-transform: uppercase;
   letter-spacing: 1px;
 }
 
@@ -74,102 +142,113 @@ img {
   margin-top: 30px;
 }
 
-.header .header-content h4,
-.sub-header h4 {
-  font-size: 14px;
-  margin-bottom: 5px;
-  color: aquamarine;
-}
-
 .header .header-text-1 {
+  font-size: 22px;
   font-weight: bold;
-  font-size: 20px;
 }
 
 .header .header-text-2 {
-  font-size: 24px;
-  margin: 20px 0;
+  font-size: 18px;
+  margin: 25px 0;
 }
 
-.header .legal-text {
-  font-size: 13px;
-  margin-top: 10px;
+.header::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 180px;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.76) 15.54%,
+    rgba(0, 0, 0, 0.192) 60.23%,
+    rgba(0, 0, 0, 8e-5) 100%
+  );
 }
 
-/* Utility class */
-.btn {
-  cursor: pointer;
-  padding: 20px 32px;
-  text-transform: uppercase;
-  font-weight: 600;
-  background: #fff;
-  color: #333;
-  min-width: 135px;
-  letter-spacing: 1px;
-  margin-bottom: 10px;
-  display: inline-block;
-  border-radius: 5px;
-  line-height: 14px;
-}
-
-.btn-cta:hover {
-  opacity: 0.8;
-}
-
-/* Section 2 */
+/* Sub Header */
 .sub-header {
   display: grid;
   grid-template-columns: 2fr 4fr 2fr;
   gap: 40px;
-  padding: 30px 40px;
   align-items: center;
-
-  background: linear-gradient(318.68deg, #0f495c 0%, #0d3640 50%, #08141f 100%);
+  padding: 30px 40px;
+  background: linear-gradient(
+    318.68deg,
+    #0f495c 0%,
+    #0d3640 49.72%,
+    #08141f 100%
+  );
 }
 
-.bundle {
+.sub-header > div:last-of-type {
+  justify-self: end;
+  align-self: end;
+}
+
+.sub-header > div:last-of-type .sub-link {
+  text-align: center;
+}
+
+/* Categories */
+.categories {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 90px 40px;
 }
 
-.bundle .btn-outline {
-  color: #fff;
-  background: none;
-  border: 2px solid #fff;
+.categories .covers {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 40px;
 }
 
-.btn-outline:hover {
-  cursor: pointer;
-  border-color: #ccc;
+.categories .covers > div {
+  height: 500px;
+  width: 300px;
+  position: relative;
 }
 
-/* Media query */
-@media (max-width: 768px) {
-  .header .logo {
-    width: 200px;
-  }
+.categories .cover-grad {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+      156.82deg,
+      rgba(0, 0, 0, 0.6) 4.58%,
+      rgba(0, 0, 0, 0) 69.61%
+    ),
+    linear-gradient(24.5deg, rgba(0, 0, 0, 0.2) 4.71%, rgba(0, 0, 0, 0) 71.49%);
+}
 
-  .header .header-content {
-    text-align: center;
-  }
+.categories .cover-text {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  text-align: left;
+}
 
-  .header-text-1 {
-    display: none;
-  }
-
-  /* Section2 */
-  .sub-header {
-    grid-template-columns: 1fr;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
-  .sub-header > div:nth-child(2) {
-  }
-
-  .sub-header img {
-    margin: auto;
-    width: 250px;
-  }
+.categories .cover-1 {
+  background: url('https://raw.githubusercontent.com/bradtraversy/hulu-webpage-clone/main/img/cover-1.jpg')
+    no-repeat center center / cover;
+}
+.categories .cover-2 {
+  background: url('https://raw.githubusercontent.com/bradtraversy/hulu-webpage-clone/main/img/cover-2.jpg')
+    no-repeat center center / cover;
+}
+.categories .cover-3 {
+  background: url('https://raw.githubusercontent.com/bradtraversy/hulu-webpage-clone/main/img/cover-3.jpg')
+    no-repeat center center / cover;
+}
+.categories .cover-4 {
+  background: url('https://raw.githubusercontent.com/bradtraversy/hulu-webpage-clone/main/img/cover-4.jpg')
+    no-repeat center center / cover;
 }
